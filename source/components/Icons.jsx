@@ -28,6 +28,24 @@ const Icons = ({ type }) => {
     case 'share':
       imageSource = require('../assets/icons/share.png');
       break;
+    case 'share-light':
+      imageSource = require('../assets/icons/share-light.png');
+      break;
+    case 'pause':
+      imageSource = require('../assets/icons/pause.png');
+      break;
+    case 'minus':
+      imageSource = require('../assets/icons/minus.png');
+      break;
+    case 'plus':
+      imageSource = require('../assets/icons/plus.png');
+      break;
+    case 'reset':
+      imageSource = require('../assets/icons/reset.png');
+      break;
+    case 'start':
+      imageSource = require('../assets/icons/start.png');
+      break;
   }
 
   return (

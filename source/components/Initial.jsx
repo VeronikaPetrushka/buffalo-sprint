@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         height: 310,
         resizeMode: 'contain',
         position: 'absolute',
-        top: height * 0.23,
+        top: height > 700 ? height * 0.24 : height * 0.06,
         alignSelf: 'center'
     },
 

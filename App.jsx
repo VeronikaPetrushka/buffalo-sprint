@@ -8,6 +8,10 @@ import InitialScreen from './source/screens/InitialScreen';
 import TimerScreen from './source/screens/TimerScreen';
 import SettingsScreen from './source/screens/SettingsScreen';
 import AboutScreen from './source/screens/AboutScreen';
+import KnowledgeScreen from './source/screens/KnowledgeScreen';
+import ColorsScreen from './source/screens/ColorsScreen';
+import LearnScreen from './source/screens/LearnScreen';
+import HistoryScreen from './source/screens/HistoryScreen';
 
 import { MusicProvider } from './source/constants/music';
 import Music from './source/components/Music';
@@ -81,6 +85,26 @@ const App = () => {
                   <Stack.Screen 
                         name="AboutScreen" 
                         component={AboutScreen} 
+                        options={{ headerShown: false }} 
+                  />
+                  <Stack.Screen 
+                        name="KnowledgeScreen" 
+                        component={KnowledgeScreen} 
+                        options={{ headerShown: false }} 
+                  />
+                  <Stack.Screen 
+                        name="ColorsScreen" 
+                        component={ColorsScreen} 
+                        options={{ headerShown: false }} 
+                  />
+                  <Stack.Screen 
+                        name="LearnScreen" 
+                        component={LearnScreen} 
+                        options={{ headerShown: false }} 
+                  />
+                  <Stack.Screen 
+                        name="HistoryScreen" 
+                        component={HistoryScreen} 
                         options={{ headerShown: false }} 
                   />
               </Stack.Navigator>
