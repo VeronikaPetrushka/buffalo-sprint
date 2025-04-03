@@ -17,7 +17,7 @@ const WelcomeAbout = () => {
                     <Text style={[styles.text, {marginBottom: 0}]}>Set your timer, stay present, and let Buffalo guide you through focus sessions, helpful insights, and a simple game to sharpen your attention</Text>
                 </View>
 
-                <TouchableOpacity onPress={() => nav.navigate('MainMenuScreen')}>
+                <TouchableOpacity onPress={() => nav.navigate('MaiMenuScreen')}>
                     <Image source={require('../asst/buttons/start.png')} style={{width: 87, height: 40, resizeMode: 'contain'}} />
                 </TouchableOpacity>
 
