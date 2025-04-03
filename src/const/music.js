@@ -16,7 +16,7 @@ export const MusicProvider = ({ children }) => {
 
                 await TrackPlayer.add({
                     id: '1',
-                    url: require('../assets/sound.mp3'),
+                    url: require('../asst/sound.mp3'),
                     title: 'Background Music',
                     artist: 'Artist Name',
                 });

@@ -1,10 +1,10 @@
 import { View } from "react-native"
-import History from "../components/History"
+import Set from "../comp/Set"
 
-const HistoryScreen = () => {
+const SetScreen = () => {
     return (
         <View style={styles.container}>
-            <History />
+            <Set />
         </View>
     )
 }; 
@@ -16,4 +16,4 @@ const styles = {
     }
 }
 
-export default HistoryScreen;
+export default SetScreen;

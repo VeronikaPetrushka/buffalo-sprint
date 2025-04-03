@@ -17,8 +17,8 @@ const History = () => {
         }, [])
     );
 
-    const formatDate = (timestamp) => {
-        const date = new Date(timestamp);
+    const formatDate = (taskDate) => {
+        const date = new Date(taskDate);
         const day = String(date.getDate()).padStart(2, '0');
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const year = date.getFullYear();
@@ -39,7 +39,7 @@ const History = () => {
 
     const deleteTask = async (task) => {
         try {
-            const updated = tasks.filter(t => t.timestamp !== task.timestamp);
+            const updated = tasks.filter(t => t.date !== task.date);
             setTasks(updated);
             await AsyncStorage.setItem('timers', JSON.stringify(updated));
 
@@ -51,14 +51,14 @@ const History = () => {
     };
 
     return (
-        <ImageBackground source={require('../assets/backgrounds/1.png')} style={{flex: 1}}>
+        <ImageBackground source={require('../asst/backgrounds/1.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
                 <TouchableOpacity style={styles.back} onPress={() => navigation.goBack('')}>
                     <Icons type={'back'} />
                 </TouchableOpacity>
 
-                <Image source={require('../assets/titles/history.png')} style={{width: 232, height: 80, resizeMode: 'contain', marginBottom: 30}} />
+                <Image source={require('../asst/titles/history.png')} style={{width: 232, height: 80, resizeMode: 'contain', marginBottom: 30}} />
 
                 {
                     tasks.length > 0 ? (
@@ -72,7 +72,7 @@ const History = () => {
                                         >
                                             <View>
                                                 <Text style={styles.task}>{task.task}</Text>
-                                                <Text style={[styles.task, {fontWeight: '300', fontSize: 12}]}>{formatDate(task.timestamp)}</Text>
+                                                <Text style={[styles.task, {fontWeight: '300', fontSize: 12}]}>{formatDate(task.date)}</Text>
                                             </View>
                                             <Text style={[styles.task, {fontWeight: '600', fontSize: 18}]}>{Math.floor(task.duration / 60)} min</Text>
                                     </TouchableOpacity>

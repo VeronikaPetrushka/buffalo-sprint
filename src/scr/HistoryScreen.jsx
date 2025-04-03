@@ -1,10 +1,10 @@
 import { View } from "react-native"
-import Initial from "../components/Initial"
+import History from "../comp/History"
 
-const InitialScreen = () => {
+const HistoryScreen = () => {
     return (
         <View style={styles.container}>
-            <Initial />
+            <History />
         </View>
     )
 }; 
@@ -16,4 +16,4 @@ const styles = {
     }
 }
 
-export default InitialScreen;
+export default HistoryScreen;

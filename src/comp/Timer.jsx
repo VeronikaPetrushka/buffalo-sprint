@@ -57,7 +57,7 @@ const Timer = () => {
         const timerEntry = {
             task,
             duration,
-            timestamp: Date.now(),
+            date: Date.now(),
         };
 
         const existing = await AsyncStorage.getItem('timers');
@@ -77,8 +77,12 @@ const Timer = () => {
     const progress = timeLeft / duration;
 
     return (
-        <ImageBackground source={require('../assets/backgrounds/2.png')} style={{flex: 1}}>
+        <ImageBackground source={require('../asst/backgrounds/2.png')} style={{flex: 1}}>
             <View style={styles.container}>
+
+                <TouchableOpacity style={styles.back} onPress={() => navigation.goBack('')}>
+                    <Icons type={'back'} />
+                </TouchableOpacity>
 
                 <ScrollView style={{width: '100%'}}>
                     {
@@ -104,6 +108,10 @@ const Timer = () => {
                                 </TouchableOpacity>
                             </View>    
                         )
+                    }
+
+                    {
+                        start && <View style={{height: 70}} />
                     }
 
                     <View style={{ marginBottom: height * 0.07, alignItems: 'center' }}>
@@ -158,14 +166,14 @@ const Timer = () => {
                     {start && !finish && (
                         <View style={{width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 30}}>
                             <TouchableOpacity onPress={resetTimer}>
-                                <Image source={require('../assets/buttons/reset.png')} style={{width: 101, height: 40, resizeMode: 'contain'}} />
+                                <Image source={require('../asst/buttons/reset.png')} style={{width: 101, height: 40, resizeMode: 'contain'}} />
                             </TouchableOpacity>
                             <TouchableOpacity onPress={togglePause}>
                                 {
                                     pause ? (
-                                        <Image source={require('../assets/buttons/continue.png')} style={{width: 155, height: 40, resizeMode: 'contain'}} />
+                                        <Image source={require('../asst/buttons/continue.png')} style={{width: 155, height: 40, resizeMode: 'contain'}} />
                                     ) : (
-                                        <Image source={require('../assets/buttons/pause.png')} style={{width: 101, height: 40, resizeMode: 'contain'}} />
+                                        <Image source={require('../asst/buttons/pause.png')} style={{width: 101, height: 40, resizeMode: 'contain'}} />
                                     )
                                 }
                             </TouchableOpacity>
@@ -178,12 +186,12 @@ const Timer = () => {
                                 <View style={[styles.textContainer, {marginBottom: height > 700 ? height * 0.03 : 0}]}>
                                     <Text style={styles.text}>Well done. You stayed present, step by step. Take a breath, stretch a little, and let the stillness guide your next move</Text>
                                 </View>
-                                <Image source={require('../assets/decor/buffalo.png')} style={styles.buffalo} />
+                                <Image source={require('../asst/decor/buffalo.png')} style={styles.buffalo} />
                                 <View style={[styles.taskContainer, {marginBottom: height * 0.03, marginTop: height > 700 ? -10 : -50}]}>
                                     <Text style={styles.task}>{task}</Text>
                                 </View>
                                 <TouchableOpacity onPress={resetTimer}>
-                                    <Image source={require('../assets/buttons/home.png')} style={{width: 100, height: 40, resizeMode: 'contain'}} />
+                                    <Image source={require('../asst/buttons/home.png')} style={{width: 100, height: 40, resizeMode: 'contain'}} />
                                 </TouchableOpacity>
 
                                 <View style={{height: 100}} />
@@ -223,7 +231,20 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         padding: 24,
-        paddingTop: height * 0.1
+        paddingTop: height * 0.15
+    },
+
+    back: {
+        width: 48,
+        height: 48,
+        padding: 8,
+        borderWidth: 1,
+        borderColor: '#fdfeba',
+        borderRadius: 16,
+        backgroundColor: '#a008ab',
+        position: 'absolute',
+        top: height * 0.08,
+        left: 24
     },
 
     toggleTimerContainer: {

@@ -1,10 +1,10 @@
 import { View } from "react-native"
-import About from "../components/About"
+import Timer from "../comp/Timer"
 
-const AboutScreen = () => {
+const TimerScreen = () => {
     return (
         <View style={styles.container}>
-            <About />
+            <Timer />
         </View>
     )
 }; 
@@ -16,4 +16,4 @@ const styles = {
     }
 }
 
-export default AboutScreen;
+export default TimerScreen;

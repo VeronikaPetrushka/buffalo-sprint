@@ -5,19 +5,19 @@ import Icons from "./Icons";
 const { height } = Dimensions.get('window');
 
 const About = () => {
-    const navigation = useNavigation();
+    const nav = useNavigation();
 
     return (
-        <ImageBackground source={require('../assets/backgrounds/1.png')} style={{flex: 1}}>
+        <ImageBackground source={require('../asst/backgrounds/1.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
-                <TouchableOpacity style={styles.back} onPress={() => navigation.goBack('')}>
+                <TouchableOpacity style={styles.back} onPress={() => nav.goBack('')}>
                     <Icons type={'back'} />
                 </TouchableOpacity>
 
-                <Image source={require('../assets/titles/about.png')} style={{width: 104, height: 40, resizeMode: 'contain', marginBottom: 30}} />
+                <Image source={require('../asst/titles/about.png')} style={{width: 104, height: 40, resizeMode: 'contain', marginBottom: 30}} />
 
-                <Image source={require('../assets/decor/buffalo.png')} style={styles.buffalo} />
+                <Image source={require('../asst/decor/buffalo.png')} style={styles.buffalo} />
 
                 <View style={styles.textContainer}>
                     <Text style={styles.text}>Focus Game: Buffalo’s Sprint is your companion on the journey to better concentration and time mastery. Sprint with Buffalo. Track your growth. Stay mindful. Focus stronger.</Text>

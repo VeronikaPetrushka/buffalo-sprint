@@ -1,7 +1,8 @@
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, ImageBackground, ScrollView } from "react-native"
 import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
-import knowledge from "../constants/knowledge.js";
+import knowledge from "../const/knowledge.js";
+import Icons from "./Icons.jsx";
 
 const { height } = Dimensions.get('window');
 
@@ -9,10 +10,14 @@ const Knowledge = () => {
     const navigation = useNavigation();
 
     return (
-        <ImageBackground source={require('../assets/backgrounds/2.png')} style={{flex: 1}}>
+        <ImageBackground source={require('../asst/backgrounds/2.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
-                <Image source={require('../assets/titles/knowledge.png')} style={{width: 285, height: 40, resizeMode: 'contain', marginBottom: 30}} />
+                <TouchableOpacity style={styles.back} onPress={() => navigation.goBack('')}>
+                    <Icons type={'back'} />
+                </TouchableOpacity>
+
+                <Image source={require('../asst/titles/knowledge.png')} style={{width: 285, height: 40, resizeMode: 'contain', marginBottom: 30}} />
 
                 <ScrollView contentContainerStyle={{width: '100%', alignItems: 'flex-start', justifyContent: 'space-between', flexDirection: 'row', flexWrap: 'wrap'}}>
                     {
@@ -39,7 +44,20 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         padding: 24,
-        paddingTop: height * 0.1
+        paddingTop: height * 0.15
+    },
+
+    back: {
+        width: 48,
+        height: 48,
+        padding: 8,
+        borderWidth: 1,
+        borderColor: '#fdfeba',
+        borderRadius: 16,
+        backgroundColor: '#a008ab',
+        position: 'absolute',
+        top: height * 0.08,
+        left: 24
     },
 
     button: {

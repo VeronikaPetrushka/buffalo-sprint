@@ -4,17 +4,19 @@ import { enableScreens } from 'react-native-screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import InitialScreen from './source/screens/InitialScreen';
-import TimerScreen from './source/screens/TimerScreen';
-import SettingsScreen from './source/screens/SettingsScreen';
-import AboutScreen from './source/screens/AboutScreen';
-import KnowledgeScreen from './source/screens/KnowledgeScreen';
-import ColorsScreen from './source/screens/ColorsScreen';
-import LearnScreen from './source/screens/LearnScreen';
-import HistoryScreen from './source/screens/HistoryScreen';
+import MainMenuScreen from './src/scr/MainMenuScreen';
 
-import { MusicProvider } from './source/constants/music';
-import Music from './source/components/Music';
+import AboutScreen from './src/scr/AboutScreen';
+import TimerScreen from './src/scr/TimerScreen';
+import SetScreen from './src/scr/SetScreen';
+import WelcomeAbout from './src/scr/WelcomeAbout';
+import KnowledgeScreen from './src/scr/KnowledgeScreen';
+import ColorsScreen from './src/scr/ColorsScreen';
+import LearnScreen from './src/scr/LearnScreen';
+import HistoryScreen from './src/scr/HistoryScreen';
+
+import { MusicProvider } from './src/const/music';
+import Music from './src/comp/Music';
 
 enableScreens();
 
@@ -29,7 +31,7 @@ const WelcomeLoader = ({ navigation }) => {
           duration: 3500,
           useNativeDriver: true,
         }).start(() => {
-          navigation.replace('InitialScreen');
+          navigation.navigate('WelcomeAbout');
         });
       }, []);
     
@@ -39,16 +41,16 @@ const WelcomeLoader = ({ navigation }) => {
       });
 
   return (
-    <ImageBackground source={require('./source/assets/backgrounds/1.png')} style={{flex: 1}}>
+    <ImageBackground source={require('./src/asst/backgrounds/1.png')} style={{flex: 1}}>
         <View style={{width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
             <Animated.Image
-            source={require('./source/assets/decor/loader.png')}
-            style={{
-                width: 140,
-                height: 210,
-                resizeMode: 'contain',
-                transform: [{ rotate }],
-            }}
+                  source={require('./src/asst/decor/loader.png')}
+                  style={{
+                  width: 140,
+                  height: 210,
+                  resizeMode: 'contain',
+                  transform: [{ rotate }],
+                  }}
             />
         </View>
     </ImageBackground>
@@ -68,8 +70,13 @@ const App = () => {
                         options={{ headerShown: false }} 
                   />
                   <Stack.Screen 
-                        name="InitialScreen" 
-                        component={InitialScreen} 
+                        name="WelcomeAbout" 
+                        component={WelcomeAbout} 
+                        options={{ headerShown: false }} 
+                  />
+                  <Stack.Screen 
+                        name="MainMenuScreen" 
+                        component={MainMenuScreen} 
                         options={{ headerShown: false }} 
                   />
                   <Stack.Screen 
@@ -78,8 +85,8 @@ const App = () => {
                         options={{ headerShown: false }} 
                   />
                   <Stack.Screen 
-                        name="SettingsScreen" 
-                        component={SettingsScreen} 
+                        name="SetScreen" 
+                        component={SetScreen} 
                         options={{ headerShown: false }} 
                   />
                   <Stack.Screen 

@@ -1,12 +1,10 @@
 import { View } from "react-native"
-import Learn from "../components/Learn"
+import About from "../comp/About"
 
-const LearnScreen = ( {route }) => {
-    const { item } = route.params;
-
+const AboutScreen = () => {
     return (
         <View style={styles.container}>
-            <Learn item={item} />
+            <About />
         </View>
     )
 }; 
@@ -18,4 +16,4 @@ const styles = {
     }
 }
 
-export default LearnScreen;
+export default AboutScreen;

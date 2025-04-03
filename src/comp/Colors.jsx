@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, ImageBackground, Modal } from "react-native"
-import colors from '../constants/colors';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, ImageBackground, Modal } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import colors from '../const/colors';
 import Icons from './Icons';
 
 const { height } = Dimensions.get('window');
 
 const Colors = () => {
+    const nav = useNavigation();
     const [start, setStart] = useState(false);
     const [finish, setFinish] = useState(false);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -14,11 +16,6 @@ const Colors = () => {
     const [timer, setTimer] = useState(60);
     const [pause, setPause] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
-    const [key, setKey] = useState(0);
-
-    useEffect(() => {
-        setKey((prev) => prev + 1);
-    }, [finish, start]);
 
     useEffect(() => {
         let timer;
@@ -51,7 +48,6 @@ const Colors = () => {
 
         if(currentQuestionIndex === colors.length - 1) {
             setTimeout(() => setFinish(true), 1000)
-            setKey((prev) => prev + 1);
         } else {
             setTimeout(() => setCurrentQuestionIndex((prev) => prev + 1), 1000)
         }
@@ -76,22 +72,29 @@ const Colors = () => {
         setTimer(60);
         setPause(false);
         setModalVisible(false);
-        setKey((prev) => prev + 1);
     };
 
     return (
-        <ImageBackground source={require('../assets/backgrounds/2.png')} style={{flex: 1}}>
+        <ImageBackground source={require('../asst/backgrounds/2.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
                 {
                     (!start && !finish) && (
-                        <Image source={require('../assets/titles/tap.png')} style={{width: 336, height: 40, resizeMode: 'contain', marginBottom: 30}} />
+                        <TouchableOpacity style={styles.back} onPress={() => nav.goBack('')}>
+                            <Icons type={'back'} />
+                        </TouchableOpacity>    
+                    )
+                }
+
+                {
+                    (!start && !finish) && (
+                        <Image source={require('../asst/titles/tap.png')} style={{width: 336, height: 40, resizeMode: 'contain', marginBottom: 30}} />
                     )
                 }
 
                 {
                     (start && !finish) && (
-                        <View style={{width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 30, marginTop: -10}}>
+                        <View style={{width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 30, marginTop: height * -0.07}}>
                             <TouchableOpacity style={styles.pauseButton} onPress={togglePause}>
                                 <Icons type={'pause'} />
                             </TouchableOpacity>
@@ -106,7 +109,7 @@ const Colors = () => {
                     )
                 }
 
-                <Image source={require('../assets/decor/buffalo.png')} style={styles.buffalo} />
+                <Image source={require('../asst/decor/buffalo.png')} style={styles.buffalo} />
 
                 {
                     start ? (
@@ -120,7 +123,7 @@ const Colors = () => {
                                             <Text style={[styles.text, {fontWeight: '600'}]}>Final Score: {correct}</Text>
                                         </View>
                                         <TouchableOpacity onPress={handleToStart}>
-                                            <Image source={require('../assets/titles/home.png')} style={{width: 100, height: 40, resizeMode: 'contain'}} />
+                                            <Image source={require('../asst/titles/home.png')} style={{width: 100, height: 40, resizeMode: 'contain'}} />
                                         </TouchableOpacity>
                                     </View>
                                 ) : (
@@ -150,7 +153,7 @@ const Colors = () => {
                             </View>
 
                             <TouchableOpacity onPress={() => setStart(true)}>
-                                <Image source={require('../assets/buttons/start.png')} style={{width: 87, height: 40, resizeMode: 'contain'}} />
+                                <Image source={require('../asst/buttons/start.png')} style={{width: 87, height: 40, resizeMode: 'contain'}} />
                             </TouchableOpacity>
                         </View>
                     )
@@ -188,7 +191,20 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         padding: 24,
-        paddingTop: height * 0.1
+        paddingTop: height * 0.15
+    },
+
+    back: {
+        width: 48,
+        height: 48,
+        padding: 8,
+        borderWidth: 1,
+        borderColor: '#fdfeba',
+        borderRadius: 16,
+        backgroundColor: '#a008ab',
+        position: 'absolute',
+        top: height * 0.08,
+        left: 24
     },
 
     pauseButton: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { useMusic } from '../constants/music';
+import { useMusic } from '../const/music';
 
 const Music = () => {
     const { sound, toggleMusic } = useMusic();

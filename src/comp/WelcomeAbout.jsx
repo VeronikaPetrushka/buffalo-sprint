@@ -3,22 +3,22 @@ import { useNavigation } from "@react-navigation/native";
 
 const { height } = Dimensions.get('window');
 
-const Initial = () => {
-    const navigation = useNavigation();
+const WelcomeAbout = () => {
+    const nav = useNavigation();
 
     return (
-        <ImageBackground source={require('../assets/backgrounds/1.png')} style={{flex: 1}}>
+        <ImageBackground source={require('../asst/backgrounds/1.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
-                <Image source={require('../assets/decor/buffalo.png')} style={styles.buffalo} />
+                <Image source={require('../asst/decor/buffalo.png')} style={styles.buffalo} />
 
                 <View style={styles.textContainer}>
                     <Text style={styles.text}>This is your space to focus, track your progress, and grow stronger — one mindful sprint at a time.</Text>
                     <Text style={[styles.text, {marginBottom: 0}]}>Set your timer, stay present, and let Buffalo guide you through focus sessions, helpful insights, and a simple game to sharpen your attention</Text>
                 </View>
 
-                <TouchableOpacity onPress={() => navigation.navigate('TimerScreen')}>
-                    <Image source={require('../assets/buttons/start.png')} style={{width: 87, height: 40, resizeMode: 'contain'}} />
+                <TouchableOpacity onPress={() => nav.navigate('MMenuScreen')}>
+                    <Image source={require('../asst/buttons/start.png')} style={{width: 87, height: 40, resizeMode: 'contain'}} />
                 </TouchableOpacity>
 
             </View>
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Initial;
+export default WelcomeAbout;
