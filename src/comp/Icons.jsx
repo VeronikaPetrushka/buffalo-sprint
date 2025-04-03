@@ -7,18 +7,6 @@ const Icons = ({ type }) => {
   let iconStyle = [styles.icon];
 
   switch (type) {
-    case '1':
-      imageSource = require('../asst/nav-buttons/1.png');
-      break;
-    case '2':
-      imageSource = require('../asst/nav-buttons/2.png');
-      break;
-    case '3':
-      imageSource = require('../asst/nav-buttons/3.png');
-      break;
-    case '4':
-      imageSource = require('../asst/nav-buttons/4.png');
-      break;
     case 'back':
       imageSource = require('../asst/icons/back.png');
       break;
