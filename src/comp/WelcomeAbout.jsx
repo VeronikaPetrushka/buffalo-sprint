@@ -7,7 +7,7 @@ const WelcomeAbout = () => {
     const nav = useNavigation();
 
     return (
-        <ImageBackground source={require('../asst/backgrounds/1.png')} style={{flex: 1}}>
+        <ImageBackground source={require('../asst/backs/1.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
                 <Image source={require('../asst/decor/buffalo.png')} style={styles.buffalo} />
@@ -17,7 +17,7 @@ const WelcomeAbout = () => {
                     <Text style={[styles.text, {marginBottom: 0}]}>Set your timer, stay present, and let Buffalo guide you through focus sessions, helpful insights, and a simple game to sharpen your attention</Text>
                 </View>
 
-                <TouchableOpacity onPress={() => nav.navigate('MaiMenuScreen')}>
+                <TouchableOpacity onPress={() => nav.navigate('MainMenuScreen')}>
                     <Image source={require('../asst/buttons/start.png')} style={{width: 87, height: 40, resizeMode: 'contain'}} />
                 </TouchableOpacity>
 

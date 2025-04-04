@@ -75,7 +75,7 @@ const Colors = () => {
     };
 
     return (
-        <ImageBackground source={require('../asst/backgrounds/2.png')} style={{flex: 1}}>
+        <ImageBackground source={require('../asst/backs/2.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
                 {

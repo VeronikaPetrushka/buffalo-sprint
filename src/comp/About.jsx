@@ -8,7 +8,7 @@ const About = () => {
     const nav = useNavigation();
 
     return (
-        <ImageBackground source={require('../asst/backgrounds/1.png')} style={{flex: 1}}>
+        <ImageBackground source={require('../asst/backs/1.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
                 <TouchableOpacity style={styles.back} onPress={() => nav.goBack('')}>

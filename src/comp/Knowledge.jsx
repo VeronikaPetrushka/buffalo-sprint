@@ -1,5 +1,4 @@
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, ImageBackground, ScrollView } from "react-native"
-import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import knowledge from "../const/knowledge.js";
 import Icons from "./Icons.jsx";
@@ -10,7 +9,7 @@ const Knowledge = () => {
     const navigation = useNavigation();
 
     return (
-        <ImageBackground source={require('../asst/backgrounds/2.png')} style={{flex: 1}}>
+        <ImageBackground source={require('../asst/backs/2.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
                 <TouchableOpacity style={styles.back} onPress={() => navigation.goBack('')}>
@@ -23,11 +22,7 @@ const Knowledge = () => {
                     {
                         knowledge.map((item, index) => (
                             <TouchableOpacity key={index} style={styles.button} onPress={() => navigation.navigate('LearnScreen', { item })}>
-                                <LinearGradient colors={['#a008ab', '#7b017c']} style={{width: '100%', height: '100%', borderRadius: 20}}>
-                                    <View style={styles.buttonInner}>
-                                        <Text style={styles.buttonText}>{item.title}</Text>
-                                    </View>
-                                </LinearGradient>
+                                <Text style={styles.buttonText}>{item.title}</Text>
                             </TouchableOpacity>
                         ))
                     }
@@ -66,12 +61,8 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         borderWidth: 1,
         borderColor: '#fdfeba',
-        marginBottom: 24
-    },
-
-    buttonInner: {
-        width: '100%',
-        height: '100%',
+        marginBottom: 24,
+        backgroundColor: '#a008ab',
         alignItems: 'center',
         justifyContent: 'flex-end',
         padding: 16

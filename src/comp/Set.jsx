@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Switch, ImageBackground, Image, Share, Linking, ScrollView, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useMusic } from '../const/music.js';
 import Icons from "./Icons.jsx";
 
 const { height } = Dimensions.get('window');
@@ -31,7 +30,6 @@ const SettingLink = ({ label, onPress, iconType }) => (
 
 const Set = () => {
     const nav = useNavigation();
-    const { sound, toggleMusic } = useMusic();
     const [vibration, setVibration] = useState(true);
     const [notifications, setNotifications] = useState(false);
 
@@ -62,7 +60,7 @@ const Set = () => {
     };
 
     return (
-        <ImageBackground source={require('../asst/backgrounds/2.png')} style={{flex: 1}}>
+        <ImageBackground source={require('../asst/backs/2.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
                 <TouchableOpacity style={styles.back} onPress={() => nav.goBack('')}>
@@ -73,7 +71,6 @@ const Set = () => {
 
                 <ScrollView style={{ width: '100%' }}>
 
-                    <SettingItem label="Music" value={sound} onToggle={toggleMusic} />
                     <SettingItem label="Vibration" value={vibration} onToggle={handleToggleVibration} />
                     <SettingItem label="Notifications" value={notifications} onToggle={handleToggleNotifications} />
 

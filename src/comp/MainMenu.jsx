@@ -23,7 +23,7 @@ const Nav = () => {
     }, [nav]);
 
     return (
-        <ImageBackground source={require('../asst/backgrounds/1.png')} style={{flex: 1}}>
+        <ImageBackground source={require('../asst/backs/1.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
                 <Image source={require('../asst/decor/buffalo.png')} style={styles.buffalo} />
@@ -42,13 +42,13 @@ const Nav = () => {
 
                 <TouchableOpacity 
                     style={styles.button} 
-                    onPress={() => handleNavigate('ColorsScreen')}>
+                    onPress={() => handleNavigate('ColorScreen')}>
                     <Text style={styles.buttonText}>Game</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.button} 
-                    onPress={() => handleNavigate('SetScreen')}>
+                    onPress={() => handleNavigate('SettingsScreen')}>
                     <Text style={styles.buttonText}>Settings</Text>
                 </TouchableOpacity>
 

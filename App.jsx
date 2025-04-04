@@ -15,9 +15,6 @@ import ColorsScreen from './src/scr/ColorsScreen';
 import LearnScreen from './src/scr/LearnScreen';
 import HistoryScreen from './src/scr/HistoryScreen';
 
-import { MusicProvider } from './src/const/music';
-import Music from './src/comp/Music';
-
 enableScreens();
 
 const Stack = createStackNavigator();
@@ -41,7 +38,7 @@ const WelcomeLoader = ({ navigation }) => {
       });
 
   return (
-    <ImageBackground source={require('./src/asst/backgrounds/1.png')} style={{flex: 1}}>
+    <ImageBackground source={require('./src/asst/backs/1.png')} style={{flex: 1}}>
         <View style={{width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
             <Animated.Image
                   source={require('./src/asst/decor/loader.png')}
@@ -60,63 +57,60 @@ const WelcomeLoader = ({ navigation }) => {
 const App = () => {
 
   return (
-      <MusicProvider>
-          <Music />
-          <NavigationContainer>
-              <Stack.Navigator initialRouteName={"WelcomeLoader" }>    
-                  <Stack.Screen 
-                        name="WelcomeLoader" 
-                        component={WelcomeLoader} 
-                        options={{ headerShown: false }} 
-                  />
-                  <Stack.Screen 
-                        name="WelcomeAbout" 
-                        component={WelcomeAbout} 
-                        options={{ headerShown: false }} 
-                  />
-                  <Stack.Screen 
-                        name="MainMenuScreen" 
-                        component={MainMenuScreen} 
-                        options={{ headerShown: false }} 
-                  />
-                  <Stack.Screen 
-                        name="TimerScreen" 
-                        component={TimerScreen} 
-                        options={{ headerShown: false }} 
-                  />
-                  <Stack.Screen 
-                        name="SetScreen" 
-                        component={SetScreen} 
-                        options={{ headerShown: false }} 
-                  />
-                  <Stack.Screen 
-                        name="AboutScreen" 
-                        component={AboutScreen} 
-                        options={{ headerShown: false }} 
-                  />
-                  <Stack.Screen 
-                        name="KnowledgeScreen" 
-                        component={KnowledgeScreen} 
-                        options={{ headerShown: false }} 
-                  />
-                  <Stack.Screen 
-                        name="ColorsScreen" 
-                        component={ColorsScreen} 
-                        options={{ headerShown: false }} 
-                  />
-                  <Stack.Screen 
-                        name="LearnScreen" 
-                        component={LearnScreen} 
-                        options={{ headerShown: false }} 
-                  />
-                  <Stack.Screen 
-                        name="HistoryScreen" 
-                        component={HistoryScreen} 
-                        options={{ headerShown: false }} 
-                  />
-              </Stack.Navigator>
-          </NavigationContainer>
-      </MusicProvider>
+      <NavigationContainer>
+            <Stack.Navigator initialRouteName={"WelcomeLoader" }>    
+            <Stack.Screen 
+                  name="WelcomeLoader" 
+                  component={WelcomeLoader} 
+                  options={{ headerShown: false }} 
+            />
+            <Stack.Screen 
+                  name="WelcomeAbout" 
+                  component={WelcomeAbout} 
+                  options={{ headerShown: false }} 
+            />
+            <Stack.Screen 
+                  name="MainMenuScreen" 
+                  component={MainMenuScreen} 
+                  options={{ headerShown: false }} 
+            />
+            <Stack.Screen 
+                  name="TimerScreen" 
+                  component={TimerScreen} 
+                  options={{ headerShown: false }} 
+            />
+            <Stack.Screen 
+                  name="SetScreen" 
+                  component={SetScreen} 
+                  options={{ headerShown: false }} 
+            />
+            <Stack.Screen 
+                  name="AboutScreen" 
+                  component={AboutScreen} 
+                  options={{ headerShown: false }} 
+            />
+            <Stack.Screen 
+                  name="KnowledgeScreen" 
+                  component={KnowledgeScreen} 
+                  options={{ headerShown: false }} 
+            />
+            <Stack.Screen 
+                  name="ColorsScreen" 
+                  component={ColorsScreen} 
+                  options={{ headerShown: false }} 
+            />
+            <Stack.Screen 
+                  name="LearnScreen" 
+                  component={LearnScreen} 
+                  options={{ headerShown: false }} 
+            />
+            <Stack.Screen 
+                  name="HistoryScreen" 
+                  component={HistoryScreen} 
+                  options={{ headerShown: false }} 
+            />
+            </Stack.Navigator>
+      </NavigationContainer>
     );
 };
 
