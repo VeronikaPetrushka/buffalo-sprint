@@ -1,6 +1,5 @@
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Share, ScrollView } from "react-native"
 import { useNavigation } from "@react-navigation/native";
-import Icons from "./Icons";
 
 const { height } = Dimensions.get('window');
 
@@ -22,11 +21,11 @@ const Learn = ({ item }) => {
         <View style={styles.container}>
 
             <View style={{width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24}}>
-                <TouchableOpacity style={styles.back} onPress={() => navigation.goBack('')}>
-                    <Icons type={'back'} />
+                <TouchableOpacity style={[styles.back, {width: 'auto', alignItems: 'center', justifyContent: 'center'}]} onPress={() => navigation.goBack('')}>
+                    <Text style={{fontSize: 18, fontWeight: '900', color: '#fff'}}>Back</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.back} onPress={shareKnowledge}>
-                    <Icons type={'share-light'} />
+                <TouchableOpacity style={[styles.back, {width: 'auto', alignItems: 'center', justifyContent: 'center'}]} onPress={shareKnowledge}>
+                    <Text style={{fontSize: 18, fontWeight: '900', color: '#fff'}}>Share</Text>
                 </TouchableOpacity>
             </View>
 

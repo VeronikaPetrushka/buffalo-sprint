@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, ImageBackg
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { Circle } from 'react-native-progress';
-import Icons from './Icons';
 
 const { height } = Dimensions.get('window');
 
@@ -80,8 +79,8 @@ const Timer = () => {
         <ImageBackground source={require('../asst/backs/2.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
-                <TouchableOpacity style={styles.back} onPress={() => navigation.goBack('')}>
-                    <Icons type={'back'} />
+                <TouchableOpacity style={[styles.back, {width: 'auto', alignItems: 'center', justifyContent: 'center'}]} onPress={() => navigation.goBack('')}>
+                    <Text style={{fontSize: 18, fontWeight: '900', color: '#fff'}}>Menu</Text>
                 </TouchableOpacity>
 
                 <ScrollView style={{width: '100%'}}>
@@ -133,11 +132,11 @@ const Timer = () => {
                             <View style={{width: '100%'}}>
                                 <View style={{width: '100%', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', marginBottom: 24}}>
                                     <TouchableOpacity 
-                                        style={styles.amountButton} 
+                                        style={[styles.amountButton, {alignItems: 'center', justifyContent: 'center'}]} 
                                         onPress={() => setDuration(prev => prev - 60)}
                                         disabled={duration <= 60}
                                         >
-                                        <Icons type={'minus'} />
+                                        <Text style={{fontSize: 24, fontWeight: '900', color: '#a008ab'}}>-</Text>
                                     </TouchableOpacity>
                                     <TextInput
                                             style={styles.input}
@@ -146,17 +145,20 @@ const Timer = () => {
                                             placeholder='Task name'
                                             placeholderTextColor={'rgba(42, 29, 65, 0.4)'}
                                         />
-                                    <TouchableOpacity style={styles.amountButton} onPress={() => setDuration(prev => prev + 60)}>
-                                        <Icons type={'plus'} />
+                                    <TouchableOpacity 
+                                        style={[styles.amountButton, {alignItems: 'center', justifyContent: 'center'}]} 
+                                        onPress={() => setDuration(prev => prev + 60)}
+                                        >
+                                        <Text style={{fontSize: 24, fontWeight: '900', color: '#a008ab'}}>+</Text>
                                     </TouchableOpacity>
                                 </View>
 
                                 <View style={{width: '100%', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row'}}>
-                                    <TouchableOpacity style={styles.actionButton} onPress={startTimer}>
-                                        <Icons type={'start'} />
+                                    <TouchableOpacity style={[styles.actionButton, {width: 'auto', alignItems: 'center', justifyContent: 'center'}]} onPress={startTimer}>
+                                    <Text style={{fontSize: 18, fontWeight: '900', color: '#fff'}}>Start</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={styles.actionButton} onPress={resetTimer}>
-                                        <Icons type={'reset'} />
+                                    <TouchableOpacity style={[styles.actionButton, {width: 'auto', alignItems: 'center', justifyContent: 'center'}]} onPress={resetTimer}>
+                                    <Text style={{fontSize: 18, fontWeight: '900', color: '#fff'}}>Reset</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>
@@ -182,12 +184,12 @@ const Timer = () => {
 
                     {
                         finish && (
-                            <View style={{width: '100%', position: 'absolute', top: height * 0.2, alignItems: 'center'}}>
+                            <View style={{width: '100%', position: 'absolute', top: height * 0.29, alignItems: 'center'}}>
                                 <View style={[styles.textContainer, {marginBottom: height > 700 ? height * 0.03 : 0}]}>
-                                    <Text style={styles.text}>Well done. You stayed present, step by step. Take a breath, stretch a little, and let the stillness guide your next move</Text>
+                                    <Text style={[styles.text, {fontSize: height > 700 ? 18 : 14}]}>Well done. You stayed present, step by step. Take a breath, stretch a little, and let the stillness guide your next move</Text>
                                 </View>
-                                <Image source={require('../asst/decor/buffalo.png')} style={styles.buffalo} />
-                                <View style={[styles.taskContainer, {marginBottom: height * 0.03, marginTop: height > 700 ? -10 : -50}]}>
+                                <Image source={require('../asst/decor/buffalo.png')} style={[styles.buffalo, {height: height * 0.22}]} />
+                                <View style={[styles.taskContainer, {marginBottom: height * 0.03, marginTop: -10}]}>
                                     <Text style={styles.task}>{task}</Text>
                                 </View>
                                 <TouchableOpacity onPress={resetTimer}>
@@ -231,7 +233,8 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         padding: 24,
-        paddingTop: height * 0.15
+        paddingTop: height * 0.16,
+        paddingBottom: 0
     },
 
     back: {
@@ -278,11 +281,10 @@ const styles = StyleSheet.create({
         height: 48,
         backgroundColor: 'rgba(255, 255, 255, 0.2)',
         borderRadius: 16,
-        padding: 12,
     },
 
     input: {
-        width: 245,
+        width: 225,
         paddingVertical: 16,
         paddingHorizontal: 20,
         borderRadius: 20,
@@ -323,7 +325,7 @@ const styles = StyleSheet.create({
         width: 197,
         height: 215,
         resizeMode: 'contain',
-        marginTop: height > 700 ? 0 : -30
+        marginTop: height > 700 ? -40 : -20
     },
 
     textContainer: {

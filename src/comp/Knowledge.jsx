@@ -1,7 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, ImageBackground, ScrollView } from "react-native"
 import { useNavigation } from "@react-navigation/native";
 import knowledge from "../const/knowledge.js";
-import Icons from "./Icons.jsx";
 
 const { height } = Dimensions.get('window');
 
@@ -12,8 +11,8 @@ const Knowledge = () => {
         <ImageBackground source={require('../asst/backs/2.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
-                <TouchableOpacity style={styles.back} onPress={() => navigation.goBack('')}>
-                    <Icons type={'back'} />
+                <TouchableOpacity style={[styles.back, {width: 'auto', alignItems: 'center', justifyContent: 'center'}]} onPress={() => navigation.goBack('')}>
+                    <Text style={{fontSize: 18, fontWeight: '900', color: '#fff'}}>Menu</Text>
                 </TouchableOpacity>
 
                 <Image source={require('../asst/titles/knowledge.png')} style={{width: 285, height: 40, resizeMode: 'contain', marginBottom: 30}} />

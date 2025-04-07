@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Switch, ImageBackground, Image, Share, Linking, ScrollView, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import Icons from "./Icons.jsx";
 
 const { height } = Dimensions.get('window');
 
@@ -17,14 +16,9 @@ const SettingItem = ({ label, value, onToggle }) => (
     </View>
 );
 
-const SettingLink = ({ label, onPress, iconType }) => (
+const SettingLink = ({ label, onPress }) => (
     <TouchableOpacity style={styles.button} onPress={onPress}>
         <Text style={styles.buttonText}>{label}</Text>
-        {iconType && (
-            <View style={{ width: 24, height: 24 }}>
-                <Icons type={iconType} />
-            </View>
-        )}
     </TouchableOpacity>
 );
 
@@ -63,8 +57,8 @@ const Set = () => {
         <ImageBackground source={require('../asst/backs/2.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
-                <TouchableOpacity style={styles.back} onPress={() => nav.goBack('')}>
-                    <Icons type={'back'} />
+                <TouchableOpacity style={[styles.back, {width: 'auto', alignItems: 'center', justifyContent: 'center'}]} onPress={() => nav.goBack('')}>
+                    <Text style={{fontSize: 18, fontWeight: '900', color: '#fff'}}>Menu</Text>
                 </TouchableOpacity>
 
                 <Image source={require('../asst/titles/settings.png')} style={styles.title} />
@@ -74,8 +68,8 @@ const Set = () => {
                     <SettingItem label="Vibration" value={vibration} onToggle={handleToggleVibration} />
                     <SettingItem label="Notifications" value={notifications} onToggle={handleToggleNotifications} />
 
-                    <SettingLink label="About the app" onPress={() => nav.navigate('AboutScreen')} iconType="about" />
-                    <SettingLink label="Share the app" onPress={handleShareApp} iconType="share" />
+                    <SettingLink label="About the app" onPress={() => nav.navigate('AboutScreen')} />
+                    <SettingLink label="Share the app" onPress={handleShareApp} />
                     <SettingLink label="Terms of use" onPress={handleOpenTerms} />
 
                     <View style={{ height: 100 }} />

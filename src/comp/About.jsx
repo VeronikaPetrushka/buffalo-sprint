@@ -1,6 +1,5 @@
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, ImageBackground } from "react-native"
 import { useNavigation } from "@react-navigation/native";
-import Icons from "./Icons";
 
 const { height } = Dimensions.get('window');
 
@@ -8,11 +7,11 @@ const About = () => {
     const nav = useNavigation();
 
     return (
-        <ImageBackground source={require('../asst/backs/1.png')} style={{flex: 1}}>
+        <ImageBackground source={require('../asst/backs/2.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
-                <TouchableOpacity style={styles.back} onPress={() => nav.goBack('')}>
-                    <Icons type={'back'} />
+                <TouchableOpacity style={[styles.back, {width: 'auto', alignItems: 'center', justifyContent: 'center'}]} onPress={() => nav.goBack('')}>
+                    <Text style={{fontSize: 18, fontWeight: '900', color: '#fff'}}>Back</Text>
                 </TouchableOpacity>
 
                 <Image source={require('../asst/titles/about.png')} style={{width: 104, height: 40, resizeMode: 'contain', marginBottom: 30}} />

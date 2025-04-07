@@ -29,7 +29,7 @@ const Nav = () => {
                 <Image source={require('../asst/decor/buffalo.png')} style={styles.buffalo} />
 
                 <TouchableOpacity 
-                    style={[styles.button, {marginTop: -3}]} 
+                    style={[styles.button, {marginTop: -2}]} 
                     onPress={() => handleNavigate('TimerScreen')}>
                         <Text style={styles.buttonText}>Timer</Text>
                 </TouchableOpacity>
@@ -42,13 +42,13 @@ const Nav = () => {
 
                 <TouchableOpacity 
                     style={styles.button} 
-                    onPress={() => handleNavigate('ColorScreen')}>
+                    onPress={() => handleNavigate('ColorsScreen')}>
                     <Text style={styles.buttonText}>Game</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.button} 
-                    onPress={() => handleNavigate('SettingsScreen')}>
+                    onPress={() => handleNavigate('SetScreen')}>
                     <Text style={styles.buttonText}>Settings</Text>
                 </TouchableOpacity>
 
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
 
     buffalo: {
         width: 280,
-        height: 310,
+        height: height * 0.3,
         resizeMode: 'contain',
     },
     

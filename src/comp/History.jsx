@@ -2,7 +2,6 @@ import React, { useState, useCallback } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, ImageBackground, ScrollView, Modal } from "react-native"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
-import Icons from "./Icons";
 
 const { height } = Dimensions.get('window');
 
@@ -54,8 +53,8 @@ const History = () => {
         <ImageBackground source={require('../asst/backs/1.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
-                <TouchableOpacity style={styles.back} onPress={() => navigation.goBack('')}>
-                    <Icons type={'back'} />
+                <TouchableOpacity style={[styles.back, {width: 'auto', alignItems: 'center', justifyContent: 'center'}]} onPress={() => navigation.goBack('')}>
+                    <Text style={{fontSize: 18, fontWeight: '900', color: '#fff'}}>Back</Text>
                 </TouchableOpacity>
 
                 <Image source={require('../asst/titles/history.png')} style={{width: 232, height: 80, resizeMode: 'contain', marginBottom: 30}} />

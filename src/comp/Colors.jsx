@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, ImageBackground, Modal } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import colors from '../const/colors';
-import Icons from './Icons';
 
 const { height } = Dimensions.get('window');
 
@@ -80,9 +79,9 @@ const Colors = () => {
 
                 {
                     (!start && !finish) && (
-                        <TouchableOpacity style={styles.back} onPress={() => nav.goBack('')}>
-                            <Icons type={'back'} />
-                        </TouchableOpacity>    
+                        <TouchableOpacity style={[styles.back, {width: 'auto', alignItems: 'center', justifyContent: 'center'}]} onPress={() => nav.goBack('')}>
+                            <Text style={{fontSize: 18, fontWeight: '900', color: '#fff'}}>Menu</Text>
+                        </TouchableOpacity>
                     )
                 }
 
@@ -95,8 +94,8 @@ const Colors = () => {
                 {
                     (start && !finish) && (
                         <View style={{width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 30, marginTop: height * -0.07}}>
-                            <TouchableOpacity style={styles.pauseButton} onPress={togglePause}>
-                                <Icons type={'pause'} />
+                            <TouchableOpacity style={[styles.pauseButton, {width: 'auto', alignItems: 'center', justifyContent: 'center'}]} onPress={togglePause}>
+                                <Text style={{fontSize: 18, fontWeight: '900', color: '#fff'}}>Pause</Text>
                             </TouchableOpacity>
                             <Text style={styles.timer}>{String(Math.floor(timer / 60)).padStart(2, '0')}:{String(timer % 60).padStart(2, '0')}</Text>
                         </View>
